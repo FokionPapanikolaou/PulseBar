@@ -1,0 +1,44 @@
+END USER LICENSE AGREEMENT (EULA)
+PulseBar
+Copyright (c) 2026 Fokion Papanikolaou. All rights reserved.
+
+IMPORTANT — READ CAREFULLY:
+By installing, copying, or using this software ("the Software"), you agree to be
+bound by the terms of this Agreement. If you do not agree, do not use the Software.
+
+1. LICENSE GRANT
+   Upon purchase, you are granted a personal, non-exclusive, non-transferable
+   license to install and use the Software on devices that you own or control.
+
+2. RESTRICTIONS
+   You may NOT:
+   (a) resell, sublicense, rent, lease, or redistribute the Software for a fee
+       without written permission from the author;
+   (b) reverse engineer, decompile, or disassemble the Software, except to the
+       extent permitted by applicable law;
+   (c) remove or alter any copyright, trademark, or signature notices.
+
+3. OWNERSHIP
+   The Software is licensed, not sold. The author retains all right, title, and
+   interest in and to the Software, including all intellectual property rights.
+
+4. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+5. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+   OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+6. THIRD-PARTY COMPONENTS
+   This Software incorporates third-party open-source components. See
+   THIRD_PARTY.txt for their respective licenses and notices.
+
+7. TERMINATION
+   This license is effective until terminated. It terminates automatically if you
+   breach any term. Upon termination, you must cease all use and destroy all copies.
+
+Contact: Fokion Papanikolaou

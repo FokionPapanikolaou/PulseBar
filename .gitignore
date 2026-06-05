@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# Inno Setup output / built installers
+Output/
+*-Setup.exe
+*.exe
+
+# App config (user-local, created at runtime next to the app)
+config.json
+
+# Backups / temp
+*_old.*
+*.bak
+app_preview.png
+
+# OS / editors
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,41 @@
+THIRD-PARTY NOTICES
+PulseBar
+
+This product includes the following third-party open-source software.
+All are permissive licenses that allow commercial distribution.
+
+--------------------------------------------------------------------------------
+Python  (PSF License)
+  Copyright (c) 2001-2026 Python Software Foundation. All Rights Reserved.
+  https://docs.python.org/3/license.html
+
+--------------------------------------------------------------------------------
+psutil  (BSD 3-Clause License)
+  Copyright (c) 2009, Giampaolo Rodola.
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the BSD 3-Clause conditions are met.
+  https://github.com/giampaolo/psutil/blob/master/LICENSE
+
+--------------------------------------------------------------------------------
+Pillow (PIL Fork)  (MIT-CMU / HPND License)  — used only to generate icon assets
+  Copyright (c) 2010 by Jeffrey A. Clark and contributors.
+  https://github.com/python-pillow/Pillow/blob/main/LICENSE
+
+--------------------------------------------------------------------------------
+Tkinter / Tcl/Tk  (BSD-style License)
+  Copyright (c) Tcl/Tk authors.
+  https://www.tcl.tk/software/tcltk/license.html
+
+--------------------------------------------------------------------------------
+pystray  (LGPL-3.0)  — system-tray icon
+  Copyright (c) Moses Palmer.
+  https://github.com/moses-palmer/pystray
+  Source available from the project page; used unmodified.
+
+--------------------------------------------------------------------------------
+PyInstaller  (used as a build tool only; bootloader under Apache-style exception)
+  The PyInstaller bootloader is distributed under a GPL-with-exception that
+  explicitly permits bundling into proprietary/commercial applications.
+  https://pyinstaller.org/en/stable/license.html
+
+--------------------------------------------------------------------------------
