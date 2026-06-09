@@ -30,6 +30,10 @@
 ![PulseBar](assets/promo_banner.png)
 
 <p align="center">
+  <img src="assets/demo.gif" alt="PulseBar live demo" width="92%">
+</p>
+
+<p align="center">
   <img src="store/screenshots/1_hero.png" width="32%" alt="Hero">
   <img src="store/screenshots/2_hover.png" width="32%" alt="Hover details">
   <img src="store/screenshots/3_themes.png" width="32%" alt="Themes">
@@ -213,7 +217,12 @@ The portable `dist\PulseBar.exe` runs with no install; settings are saved as
 
 ---
 
+## 🤝 Contributing
+Bug reports, ideas and translations are all welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Found a security issue? Please report it privately — details in [SECURITY.md](SECURITY.md).
+
 ## 📜 License
 See [LICENSE.txt](LICENSE.txt). Third-party notices in [THIRD_PARTY.txt](THIRD_PARTY.txt).
+Privacy policy: [PRIVACY.md](PRIVACY.md). Full version history: [CHANGELOG.md](CHANGELOG.md).
 
 © 2026 Fokion Papanikolaou. All rights reserved.

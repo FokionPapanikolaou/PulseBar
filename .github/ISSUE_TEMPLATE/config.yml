@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/FokionPapanikolaou/PulseBar/discussions
+    about: Questions, ideas, screenshots and chit-chat live in Discussions.
+  - name: 🏪 Microsoft Store
+    url: https://apps.microsoft.com/detail/9P128R4SVXLC
+    about: Get the latest version from the Microsoft Store (auto-updates).
+  - name: 💜 Donate
+    url: https://www.paypal.com/donate/?hosted_button_id=PHZG592VLQAFA
+    about: PulseBar is free. If you enjoy it, a small donation is very welcome.

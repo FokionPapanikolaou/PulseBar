@@ -1,0 +1,59 @@
+name: 🐛 Bug report
+description: Something isn't working right — let me know!
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug! Please fill in as much detail as you can.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: When I do X, PulseBar shows Y, but I expected Z.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can someone else trigger this?
+      placeholder: |
+        1. Open the tray menu
+        2. Switch theme to "Inferno"
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PulseBar version
+      description: See the tray icon → bottom of the menu.
+      placeholder: "v2.5"
+    validations:
+      required: true
+  - type: dropdown
+    id: install-type
+    attributes:
+      label: How did you install it?
+      options:
+        - Microsoft Store (MSIX)
+        - Installer (PulseBar-Setup.exe)
+        - Portable (PulseBar.exe)
+        - Built from source
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: Windows + Run → "winver" → top line
+      placeholder: "Windows 11 24H2 (build 26100)"
+    validations:
+      required: true
+  - type: textarea
+    id: extras
+    attributes:
+      label: Anything else?
+      description: Screenshots, multi-monitor setup, RGB hardware, scaling %, etc.

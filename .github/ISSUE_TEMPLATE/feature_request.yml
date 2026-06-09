@@ -1,0 +1,21 @@
+name: ✨ Feature request
+description: An idea for making PulseBar better
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's the idea?
+      description: One paragraph is fine. What would you want PulseBar to do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it useful?
+      description: The problem you're hitting or the scenario you have in mind.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Anything you've tried instead?
+      description: Existing apps, workarounds, related features in PulseBar.
