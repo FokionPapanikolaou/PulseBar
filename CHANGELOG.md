@@ -6,6 +6,28 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [2.5.1] — 2026-06-10 — *Auto-start fix for the Store build*
+
+### Fixed
+- **Auto-start under MSIX / Microsoft Store.** Inside the MSIX container,
+  the legacy `HKCU\…\Run` registry key is virtualised and ignored by the
+  shell at logon, so the previous Start-with-Windows toggle had no effect
+  for users who installed PulseBar from the Store. PulseBar now detects
+  it is running in the container via `GetCurrentPackageFullName` and uses
+  the canonical path instead.
+
+### Changed
+- `desktop:StartupTask` in the AppxManifest now defaults to `Enabled="true"`,
+  so first-time Store users get the standard Windows startup prompt and
+  the app correctly auto-starts at logon.
+- The tray menu in MSIX mode shows **Startup…** which opens
+  Windows Settings → Apps → Startup (the Microsoft-recommended UX for
+  Store apps). The Run-key toggle remains unchanged for the portable /
+  installer builds.
+
+### Added
+- `_is_msix()` runtime helper for switching between MSIX and Win32 backends.
+
 ## [2.5.0] — 2026-06-09 — *Microsoft Store edition* 🎉
 
 This is the version submitted to the **Microsoft Store**.

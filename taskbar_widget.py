@@ -15,7 +15,7 @@ import traceback
 import faulthandler
 
 APP_NAME = 'PulseBar'
-VERSION  = '2.5'
+VERSION  = '2.5.1'
 
 # ── Crash logging (enabled when NETCPURAM_DEBUG=1) ─────────────────────
 def _debug_log_path():
@@ -474,6 +474,19 @@ def save_config(cfg):
 # ── Startup (registry Run key) ─────────────────────────────────────────
 REG_KEY  = r'Software\Microsoft\Windows\CurrentVersion\Run'
 REG_NAME = 'PulseBar'
+STARTUP_TASK_ID = 'PulseBarStartup'   # must match AppxManifest.xml
+
+def _is_msix():
+    """True if we are running inside the MSIX (Store) container.
+    The container exposes its full package name via the GetCurrentPackageFullName
+    Win32 API; outside a package it returns APPMODEL_ERROR_NO_PACKAGE (15700)."""
+    try:
+        kernel32 = ctypes.windll.kernel32
+        length = ctypes.c_uint32(0)
+        rc = kernel32.GetCurrentPackageFullName(ctypes.byref(length), None)
+        return rc != 15700   # any value except NO_PACKAGE means we're packaged
+    except Exception:
+        return False
 
 def _startup_cmd():
     """The Run-key command that should launch THIS exe/script from its current
@@ -484,7 +497,29 @@ def _startup_cmd():
     pythonw = sys.executable.replace('python.exe', 'pythonw.exe')
     return f'"{pythonw}" "{script}"'
 
+# ── MSIX StartupTask backend ──────────────────────────────────────────
+# In the Store/MSIX container, the HKCU\...\Run registry key is virtualised
+# and ignored by the shell at logon. The supported path is the
+# desktop:Extension/startupTask declared in AppxManifest.xml. The manifest
+# defaults to Enabled="true", so out-of-the-box the app runs at logon.
+# Users manage startup the canonical Windows way: Settings -> Apps -> Startup.
+# When the user clicks the startup item in our tray menu under MSIX we just
+# open that page (the same pattern most Store apps use).
+
+def _open_startup_settings():
+    """Open Settings -> Apps -> Startup. MSIX-mode counterpart of toggling
+    the Run-key. Works on Windows 10 1803+."""
+    try:
+        os.startfile('ms-settings:startupapps')
+    except Exception:
+        pass
+
 def is_startup_enabled():
+    # In MSIX mode startup is managed by Windows Settings, so we report False
+    # here (the tray item below becomes an "Open settings..." link instead of
+    # a checkbox). Outside MSIX, read the Run-key as before.
+    if _is_msix():
+        return False
     try:
         k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, REG_KEY, 0, winreg.KEY_READ)
         winreg.QueryValueEx(k, REG_NAME)
@@ -494,6 +529,11 @@ def is_startup_enabled():
         return False
 
 def set_startup(enable: bool):
+    # In MSIX mode hand the user to Windows Settings; outside MSIX flip the
+    # Run-key in the registry.
+    if _is_msix():
+        _open_startup_settings()
+        return
     k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, REG_KEY, 0, winreg.KEY_SET_VALUE)
     if enable:
         winreg.SetValueEx(k, REG_NAME, 0, winreg.REG_SZ, _startup_cmd())
@@ -505,9 +545,11 @@ def set_startup(enable: bool):
     winreg.CloseKey(k)
 
 def sync_startup():
-    """Self-heal the auto-start entry: if it is enabled but points to an old
-    path (e.g. the portable .exe was moved or renamed), rewrite it to the
-    current location. Idempotent — a no-op when nothing changed or disabled."""
+    """Self-heal the registry Run-key entry for the non-Store build: if it is
+    enabled but points to an old path (e.g. the portable .exe was moved),
+    rewrite it. No-op inside the MSIX container (StartupTask manages itself)."""
+    if _is_msix():
+        return
     try:
         k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, REG_KEY, 0, winreg.KEY_READ)
         try:
@@ -1042,9 +1084,14 @@ class Widget:
                checked=lambda it: bool(self.cfg.get('locked'))),
             MI(t('reposition'), lambda i, it: self._ui(self._act_reposition)),
             toggle('check_updates', CHECKUPD_LABEL.get(self.lang, CHECKUPD_LABEL['en'])),
-            MI(t('startup'),
-               lambda i, it: self._ui(lambda: (set_startup(not is_startup_enabled()))),
-               checked=lambda it: is_startup_enabled()),
+            # In MSIX mode startup is managed by Windows; we open Settings on click.
+            # Outside MSIX it's a proper toggle backed by the registry Run-key.
+            (MI(t('startup') + '…',
+                lambda i, it: self._ui(_open_startup_settings))
+             if _is_msix() else
+             MI(t('startup'),
+                lambda i, it: self._ui(lambda: (set_startup(not is_startup_enabled()))),
+                checked=lambda it: is_startup_enabled())),
             Menu.SEPARATOR,
             MI('\U0001F49C  ' + DONATE_LABEL.get(self.lang, DONATE_LABEL['en']),
                lambda i, it: self._ui(self._show_donate)),
