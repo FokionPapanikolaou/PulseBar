@@ -1,23 +1,23 @@
-﻿# Contributing to PulseDeck
+# Contributing to PulseDeck
 
-Thanks for thinking about helping! β¤οΈ PulseDeck is a one-person project and
-all kinds of contributions are welcome β€” from bug reports to translations to
+Thanks for thinking about helping! ❤️ PulseDeck is a one-person project and
+all kinds of contributions are welcome — from bug reports to translations to
 code.
 
-## π› Reporting bugs
+## 🐛 Reporting bugs
 
 [Open an issue](https://github.com/FokionPapanikolaou/PulseDeck/issues/new/choose)
 using the **Bug report** template. The more detail you can give about your
 Windows version, install type and steps to reproduce, the faster I can help.
 
-## β¨ Suggesting features
+## ✨ Suggesting features
 
-Use the **Feature request** template β€” even half-baked ideas are great. Or
+Use the **Feature request** template — even half-baked ideas are great. Or
 start a thread in
 [Discussions](https://github.com/FokionPapanikolaou/PulseDeck/discussions)
 if you want to chat about it first.
 
-## π Translations
+## 🌍 Translations
 
 PulseDeck supports 8 languages today. To add a new one or improve an existing
 translation:
@@ -31,7 +31,7 @@ translation:
 
 PRs with translations are especially welcome.
 
-## π› οΈ Code changes
+## 🛠️ Code changes
 
 ```powershell
 # 1) deps
@@ -47,24 +47,24 @@ pyinstaller --noconfirm --onefile --windowed --name PulseDeck `
 ```
 
 A few house rules:
-- **No new external dependencies** unless it's a really good reason β€” we want
+- **No new external dependencies** unless it's a really good reason — we want
   the install size and surface area small.
 - **No telemetry, analytics or tracking.** Network calls are listed in
   `PRIVACY.md`; anything new there needs an obvious user-facing toggle.
 - **Settings live in `config.json`.** Add new keys to the `DEFAULTS` dict and
   read them with `self.cfg.get(...)`.
-- **Strings get translated** β€” if you add user-facing text, add it to every
+- **Strings get translated** — if you add user-facing text, add it to every
   language table.
 - **Keep the widget click-through-friendly.** Don't add modal dialogs or
   anything that traps focus on the bar itself.
 
-## π“ License
+## 📜 License
 
 PulseDeck is licensed under the terms in `LICENSE.txt` (proprietary EULA, but
 source is publicly readable on GitHub for transparency and contributions).
 By contributing, you agree that your changes can be incorporated under the
 same license.
 
-## π™ Thanks
+## 🙏 Thanks
 
 If you ship a contribution, you'll get credited in the release notes.

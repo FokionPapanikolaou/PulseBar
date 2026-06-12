@@ -1,4 +1,4 @@
-﻿# Security Policy
+# Security Policy
 
 ## Supported versions
 Only the latest release of PulseDeck (currently **v2.5**) receives security
@@ -12,14 +12,14 @@ latest [GitHub release](https://github.com/FokionPapanikolaou/PulseDeck/releases
 
 Instead, use GitHub's private reporting:
 
-β΅οΈ **[Report a vulnerability privately](https://github.com/FokionPapanikolaou/PulseDeck/security/advisories/new)**
+➡️ **[Report a vulnerability privately](https://github.com/FokionPapanikolaou/PulseDeck/security/advisories/new)**
 
 I'll acknowledge within 72 hours and aim to ship a fix in the next release.
 Coordinated disclosure is appreciated.
 
 ## What's in scope
 
-PulseDeck is a small desktop utility β€” the realistic attack surface is:
+PulseDeck is a small desktop utility — the realistic attack surface is:
 
 - The optional weather widget making HTTPS calls to `ipapi.co` and
   `open-meteo.com`
@@ -38,4 +38,4 @@ response, etc.), I'd like to hear about it.
 - Third-party themes / hacks people apply on top of PulseDeck
 - The Microsoft Store binary signing process (managed by Microsoft)
 
-Thanks for helping keep PulseDeck safe! π›΅οΈ
+Thanks for helping keep PulseDeck safe! 🛡️
